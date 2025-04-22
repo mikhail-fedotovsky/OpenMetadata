@@ -402,18 +402,12 @@ export const prepareUserProfileFromClaims = ({
 }): OidcUser => {
   const newUser = {
     ...user,
-    profile:
-      clientType === ClientType.Public
-        ? getNameFromUserData(
+    profile: getNameFromUserData(
             user.profile,
             jwtPrincipalClaims,
             principalDomain,
             jwtPrincipalClaimsMapping
-          )
-        : {
-            name: user.profile?.name ?? '',
-            email: user.profile?.email ?? '',
-          },
+          ),
   } as OidcUser;
 
   return newUser;
