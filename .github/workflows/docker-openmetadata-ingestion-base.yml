@@ -35,7 +35,7 @@ jobs:
         id: prepare
         uses: ./.github/actions/prepare-for-docker-build-and-push
         with:
-          image: mfedotovsky/openmetadata/ingestion-base
+          image: mfedotovsky/openmetadata
           tag: ${{ inputs.docker_release_tag }}
           push_latest: ${{ inputs.push_latest_tag_to_release }}
           is_ingestion: true
