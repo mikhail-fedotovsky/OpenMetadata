@@ -73,6 +73,15 @@ jobs:
         with:
           name: openmetadata-binary
 
+      - name: Upload app to release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          asset_path: ./openmetadata-${{ inputs.DOCKER_RELEASE_TAG }}-SNAPSHOT.tar.gz
+          upload_url: ${{ steps.attach_release.outputs.UPLOAD_URL }}
+          asset_name: openmetadata-${{ inputs.DOCKER_RELEASE_TAG }}.tar.gz
+          asset_content_type: application/tar.gz
 
   push_to_docker_hub:
     runs-on: ubuntu-latest
