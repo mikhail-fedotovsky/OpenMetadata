@@ -12,7 +12,7 @@
 # Build stage
 FROM alpine:3 AS build
 ARG RI_VERSION="1.7.0-SNAPSHOT"
-ENV RELEASE_URL="https://github.com/open-metadata/OpenMetadata/releases/download/${RI_VERSION}-release/openmetadata-${RI_VERSION}.tar.gz"
+ENV RELEASE_URL="https://github.com/mikhail-fedotovsky/OpenMetadata/releases/download/${RI_VERSION}-release/openmetadata-${RI_VERSION}.tar.gz"
 
 RUN mkdir -p /opt/openmetadata && \
     wget ${RELEASE_URL} && \
